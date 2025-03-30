@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Arya Farkhondeh">
+  <title>Arya Farkhondeh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #e0e0e0;
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1, h2, h3 {
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    a {
+      color: #8ab4f8;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: #b0b0b0;
+    }
+
+    /* Links */
+    .links {
+      text-align: center;
+      margin-top: 30px;
+      margin-bottom: 40px;
+    }
+
+    .links a {
+      margin: 0 10px;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* About Section */
+    .about-container {
+      display: flex;
+      align-items: center;
+      background: #1e1e1e;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 20px;
+      object-fit: cover;
+      border: 3px solid #8ab4f8;
+      margin-right: 20px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    /* Publications */
+    .publication {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .publication img {
+      width: 130px;
+      height: 110px;
+      border-radius: 6px;
+      border: 4px solid #807b7b; /* #a30505 */
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .publication img:hover {
+      transform: scale(1.025);
+    }
+
+    .publication-content {
+      flex: 1;
+    }
+
+    .publication-content p {
+      margin: 3px 0;
+      color: #b0b0b0;
+    }
+
+    /* Experience Section */
+    .experience {
+      margin-top: 20px;
+    }
+
+    .experience .card {
+      background: #1e1e1e;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .experience .card-body {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container {
+      flex-shrink: 0;
+      margin-right: 25px;
+    }
+
+    .logo-container img {
+      width: 112px;
+      height: 56px;
+      border-radius: 4px;
+    }
+
+    .content-container {
+      flex-grow: 1;
+    }
+
+    .exp-title {
+      color: #8ab4f8;
+      margin-bottom: -20px;
+    }
+
+    .exp-company a {
+      color: #b0b0b0;
+      text-decoration: none;
+      margin-bottom: 1px;
+    }
+
+    .exp-meta {
+      font-size: 0.9em;
+      color: #b0b0b0;
+      margin-bottom: 1px;
+      margin-top: -15px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Arya Farkhondeh</h1>
+      <p>Machine Learning and Computer Vision Engineer</p>
+    </header>
+
+    <!-- About Section -->
+    <section class="about-container">
+      <img src="images/arya.jpg" alt="Arya Farkhondeh" class="profile-img">
+      <div class="about-text">
+        <h2>About Me</h2>
+        <p style="text-align: justify;">
+          Hi! I am a Machine Learning Engineer and Researcher specializing in Computer Vision. 
+          Most recently, I worked at EPFL and Idiap in Switzerland on multimodal human-centric video understanding. 
+          Before that, I was a research intern at the Computer Vision Center (CVC) in Barcelona with Prof. Sergio Escalera. 
+          I hold an MSc in Data Science from Sapienza University of Rome, where I worked with Prof. Simone Scardapane.
+        </p>
+
+        <p style="text-align: justify; color: rgb(214, 166, 149);">
+          I am on the job market and open to roles in Machine Learning and Computer Vision.
+        </p>
+
+      </div>
+    </section>
+
+    <div class="links">
+      <a href="mailto:arya.farkh@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=ZgMfa7gAAAAJ&hl" target="_blank">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/arya-farkhondeh/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/aryafarkhondeh/" target="_blank">GitHub</a>
+      <a href="https://huggingface.co/aryafarx" target="_blank">Hugging Face 🤗</a>
+      <a href="https://twitter.com/AryaFarkhondeh" target="_blank">Twitter</a>
+    </div>
+
+    <!-- Publications -->
+    <section>
+      <h2>Selected Publications</h2>
+      <div class="publication">
+        <img src="images/gazeinteract.png" alt="Publication">
+        <div class="publication-content">
+          <a href="https://arxiv.org/abs/2403.10511" target="_blank">A Novel Framework for Multi-Person Temporal Gaze Following and Social Gaze Prediction</a>
+          <p>NeurIPS 2024</p>
+          <p>Anshul Gupta, Samy Tafasca, <strong>Arya Farkhondeh</strong>, Pierre Vuillecard, Jean-Marc Odobez.</p>
+          <a href="https://arxiv.org/abs/2403.10511" target="_blank">arXiv</a>
+        </div>
+      </div>
+
+      <div class="publication">
+        <img src="images/gazevlm.png" alt="Publication">
+        <div class="publication-content">
+          <a href="https://arxiv.org/abs/2403.10511" target="_blank">Exploring the Zero-Shot Capabilities of Vision-Language Models for Improving Gaze Following</a>
+          <p>CVPR Workshops 2024 (Nvidia Best Paper Award 🥇)</p>
+          <p>Anshul Gupta, Pierre Vuillecard, <strong>Arya Farkhondeh</strong>, Jean-Marc Odobez.</p>      
+          <a href="https://arxiv.org/abs/2406.03907" target="_blank">arXiv</a> / <a href="https://youtu.be/Vgrgi53efkE?t=4383" target="_blank">video</a>    
+        </div>
+      </div>
+
+      <div class="publication">
+        <img src="images/swat.png" alt="Publication">
+        <div class="publication-content">
+          <a href="https://arxiv.org/abs/2203.10974" target="_blank">Towards Self-Supervised Gaze Estimation</a>
+          <p>BMVC 2022</p>
+          <p><strong>Arya Farkhondeh</strong>, Cristina Palmero, Simone Scardapane, Sergio Escalera.</p>
+          <a href="https://arxiv.org/abs/2203.10974" target="_blank">arXiv</a>
+          /
+          <a href="https://github.com/aryafarkhondeh/SwAT" target="_blank">code</a>
+          /
+          <a href="https://bmvc2022.mpi-inf.mpg.de/549/" target="_blank">website</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Experience -->
+    <section class="experience">
+      <h2>Experience</h2>
+
+    <section class="experience">
+      <div class="card">
+        <div class="logo-container">
+          <img src="https://www.idiap.ch/logo.png" alt="Idiap Logo" style="width: 116px; height: 46px;"><br>
+          <div style="display: flex; justify-content: center;">
+            <img src="https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg?refresh=now" alt="Idiap Logo" style="width: 100px; height: 30px;">
+          </div>
+        </div>
+        <div class="content-container">
+          <h4 class="exp-title">Research Assistant</h4>
+          <h4 class="exp-company"><a href="https://www.idiap.ch/en">Idiap Research Institute & EPFL</a></h4>
+          <p class="exp-meta">Oct 2022 - March 2025 . PAU Group | Martigny & Lausanne, Switzerland </p>
+          <p>Worked on multimodal human-centric video understanding (visual attention modeling, hand-object interaction, vision-language models).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience">
+
+      <div class="card">
+        <div class="logo-container">
+          <img src="https://www.cvc.uab.es/wp-content/uploads/2021/05/CVC-logo-white.png" alt="Idiap Logo" style="width: 112px; height: 65px;">
+        </div>
+        <div class="content-container">
+          <h4 class="exp-title">Research Intern</h4>
+          <h4 class="exp-company"><a href="https://www.cvc.uab.es/">Computer Vision Center (CVC)</a></h4>
+          <p class="exp-meta">April 2022 - Sep 2022 . Human Pose Recovery & Behavior Analysis (HuPBA) Lab | Barcelona, Spain </p>
+          <p>Worked on self-supervised representation learning on large-scale facial images & GAN-based image-to-image translation.</p>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- Education -->
+    <section class="experience">
+      <h2>Education</h2>
+
+      <div class="card">
+        <div class="logo-container">
+          <img src="https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg?refresh=now" alt="EPFL Logo" style="width: 112px; height: 100px;">
+        </div>
+        <div class="content-container">
+          <h4 class="exp-title">PhD, Electrical Engineering (Dropout)</h4>
+          <h4 class="exp-company"><a href="https://www.epfl.ch">Swiss Federal Technology Institute of Lausanne (EPFL)</a></h4>
+          <p class="exp-meta">June 2023 - Nov 2024. Lausanne, Switzerland </p>
+          <p>Computer Vision & Machine Learning</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience">
+      <div class="card">
+        <div class="logo-container">
+          <img src="https://www.uniroma1.it/sites/default/files/images/logo/sapienza-big.png" alt="Idiap Logo">
+        </div>
+        <div class="content-container">
+          <h4 class="exp-title">MSc, Data Science</h4>
+          <h4 class="exp-company"><a href="https://www.uniroma1.it/en/pagina-strutturale/home">Sapienza University of Rome</a></h4>
+          <p class="exp-meta">Sep 2018 - Oct 2022 . Rome, Italy </p>
+          <p>Thesis: Towards Self-Supervised Gaze Estimation</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience">
+      <div class="card">
+        <div class="logo-container">
+          <img src="https://scontent.fzrh2-2.fna.fbcdn.net/v/t1.6435-9/57821659_10155952633856035_424984604462546944_n.png?_nc_cat=108&ccb=1-7&_nc_sid=a5f93a&_nc_ohc=WvEjnLNYM50Q7kNvgFVwiml&_nc_oc=AdhVR7U76CmwqwW9lyu5RQWOV4e2nnda1Vznd9HPhKpkHWHTShRcHHbsoSKSFIPel3o&_nc_zt=23&_nc_ht=scontent.fzrh2-2.fna&_nc_gid=AlzxjppBR1CjRF7t1-qg2qn&oh=00_AYCRM43iJFau78xMI5dVFA9UdwFWhCqzbYZWWWsXr5SNPA&oe=67EB884D" alt="Idiap Logo" style="width: 112px; height: 112px;">
+        </div>
+        <div class="content-container">
+          <h4 class="exp-title">Erasmus Exchange, Faculty of Mathematics and Computer Science</h4>
+          <h4 class="exp-company"><a href="https://web.ub.edu/en/">University of Barcelona</a></h4>
+          <p class="exp-meta">Feb 2020 - July 2020 . Barcelona, Spain </p>
+          <p>Courses: Computer Vision, Natural Language Processing (NLP), Bayesian Statistics and Probabilistic Programming, Time Series Analysis, Business Analytics</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Arya Farkhondeh. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
