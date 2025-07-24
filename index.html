@@ -14,10 +14,13 @@
     }
 
     html {
-      scroll-behavior: smooth;
+    background-color: #000; /* prevents Safari white flash */
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* prevents navbar overlay */
     }
 
     body {
+      background-color: #000; /* fallback for Safari paint */
       background: linear-gradient(135deg, #000000 0%, #111111 50%, #1a1a1a 100%);
       color: #fff;
       font-family: 'Inter', sans-serif;
@@ -455,10 +458,6 @@
 
     .publication-content > *:not(:last-child) {
       margin-bottom: 0.5rem;
-    }
-
-    html {
-      scroll-padding-top: 80px;
     }
 
   </style>
