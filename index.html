@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arya Farkhondeh</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #000000 0%, #111111 50%, #1a1a1a 100%);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Animated background particles */
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: float 20s infinite linear;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Glassmorphism navigation */
+    nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 50px;
+      padding: 12px 24px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    nav:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    nav a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      margin: 0 20px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: #1e90ff;
+      transform: translateY(-1px);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #1e90ff, #00d4ff);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      position: relative;
+    }
+
+    /* Hero section enhancements */
+    #about {
+      min-height: 100vh;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(30, 144, 255, 0.3);
+      box-shadow: 0 0 60px rgba(30, 144, 255, 0.4);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      animation: profilePulse 4s ease-in-out infinite;
+    }
+
+    @keyframes profilePulse {
+      0%, 100% { box-shadow: 0 0 60px rgba(30, 144, 255, 0.4); }
+      50% { box-shadow: 0 0 80px rgba(30, 144, 255, 0.6); }
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 100px rgba(30, 144, 255, 0.8);
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #999999 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      animation: titleGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      0% { filter: drop-shadow(0 0 20px rgba(30, 144, 255, 0.3)); }
+      100% { filter: drop-shadow(0 0 40px rgba(30, 144, 255, 0.6)); }
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeInUp 1s ease 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Enhanced links */
+    .links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeInUp 1s ease 1s forwards;
+    }
+
+    .links a {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .links a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .links a:hover::before {
+      left: 100%;
+    }
+
+    .links a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Section headers */
+    h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 0%, #1e90ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #1e90ff, #00d4ff);
+      border-radius: 2px;
+    }
+
+    /* Enhanced cards */
+    .project-section {
+      padding: 3rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .experience-entry, .publication {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      margin: 8px auto;
+      width: 900px;
+      max-width: 900px;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      text-align: left;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-entry::before, .publication::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.03) 50%, 
+        transparent 100%);
+      transition: left 0.6s ease;
+      z-index: 1;
+    }
+
+    .experience-entry:hover::before, .publication:hover::before {
+      left: 100%;
+    }
+
+    .experience-entry:hover, .publication:hover {
+      background: rgba(0, 0, 0, 0.8);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .experience-entry img, .publication img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 10px;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-entry:hover img, .publication:hover img {
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo-blackbg {
+      background: rgba(20, 20, 20, 0.9) !important;
+    }
+
+    .experience-text, .publication-content {
+      flex: 1;
+      position: relative;
+      z-index: 2;
+    }
+
+    .experience-text h3, .publication-content a {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .publication-content a {
+      text-decoration: none;
+    }
+
+    .publication-content a:hover {
+      color: #1e90ff;
+    }
+
+    .meta {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .experience-text p, .publication-content p {
+      color: rgba(255, 255, 255, 0.8);
+      line-height: 1.6;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    .publication-content a:not(:first-child) {
+      color: #1e90ff;
+      font-size: 0.9rem;
+      margin-right: 15px;
+      transition: all 0.3s ease;
+    }
+
+    .publication-content a:not(:first-child):hover {
+      color: #00d4ff;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      padding: 4rem 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      h1 { font-size: 3.5rem; }
+      h2 { font-size: 2.2rem; }
+      .subtitle { font-size: 1.2rem; }
+      
+      .experience-entry, .publication {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+        width: 100%;
+        height: auto;
+      }
+      
+      .experience-entry img, .publication img {
+        width: 80px;
+        height: 80px;
+      }
+      
+      .links {
+        gap: 10px;
+      }
+      
+      .links a {
+        padding: 10px 20px;
+        font-size: 13px;
+      }
+      
+      nav a {
+        margin: 0 10px;
+        font-size: 13px;
+      }
+      
+      .project-section {
+        padding: 6rem 1rem;
+      }
+    }
+
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Coming soon section */
+    #projects {
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+
+    .coming-soon {
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(20px);
+      border: 2px dashed rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 60px 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.2rem;
+      font-weight: 300;
+      transition: all 0.3s ease;
+    }
+
+    .coming-soon:hover {
+      border-color: rgba(255, 255, 255, 0.5);
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(1.02);
+    }
+
+    .publication-content > *:not(:last-child) {
+      margin-bottom: 0.5rem;
+    }
+
+    html {
+      scroll-padding-top: 80px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="bg-particles" id="particles"></div>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#publications">Publications</a>
+    <a href="#projects">Projects</a>
+  </nav>
+
+  <section class="section" id="about">
+    <img src="images/arya.jpg" alt="Arya Farkhondeh" class="profile-pic" />
+    <h1>Arya Farkhondeh</h1>
+    <div class="subtitle">Machine Learning & Computer Vision Engineer</div>
+    
+    <div class="links" id="contact">
+      <a href="mailto:arya.farkh@gmail.com">Email</a>
+      <a href="https://scholar.google.com/citations?user=ZgMfa7gAAAAJ&hl" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/arya-farkhondeh/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/aryafarkhondeh/" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://huggingface.co/aryafarx" target="_blank" rel="noopener noreferrer">Hugging Face 🤗</a>
+      <a href="https://twitter.com/AryaFarkhondeh" target="_blank" rel="noopener noreferrer">Twitter</a>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section project-section fade-in" id="education">
+    <h2>Education</h2>
+
+    <div class="experience-entry">
+      <img src="https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg?refresh=now" class="logo-whitebg">
+      <div class="experience-text">
+        <h3>PhD (Incomplete), Electrical Engineering @ EPFL</h3>
+        <div class="meta">Jun 2023 - Nov 2024 · Lausanne, Switzerland</div>
+        <p>Machine Learning & Computer Vision: Multimodal Human Behavior Understanding in Videos.</p>
+      </div>
+    </div>
+
+    <div class="experience-entry">
+      <img src="https://www.uniroma1.it/sites/default/files/images/logo/sapienza-big.png" class="logo-whitebg">
+      <div class="experience-text">
+        <h3>MSc, Data Science @ Sapienza</h3>
+        <div class="meta">Sep 2018 - Oct 2022 · Rome, Italy</div>
+        <p>Thesis on Self-Supervised 3D Gaze Estimation.</p>
+      </div>
+    </div>
+
+    <div class="experience-entry">
+      <img src="images/ub.png" class="logo-whitebg">
+      <div class="experience-text">
+        <h3>Erasmus @ University of Barcelona</h3>
+        <div class="meta">Feb 2020 - Jul 2020 · Barcelona, Spain</div>
+        <p>Courses: Computer Vision, NLP, Bayesian Stats, Time Series Analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="section project-section fade-in" id="experience">
+    <h2>Experience</h2>
+
+    <div class="publication">
+      <img src="images/simi.png" alt="Simi Logo" class="logo-whitebg">
+      <div class="experience-text">
+        <h3>Machine Learning Engineer @ Simi</h3>
+        <div class="meta">Jul 2025 - Now · Munich, Germany</div>
+        <p>ML for human perception in the automotive space. Simi is part of ZF LIFETEC, ZF Group.</p>
+      </div>
+    </div>
+
+    <div class="publication">
+      <img src="https://www.idiap.ch/logo.png" alt="Idiap Logo" class="logo-whitebg">
+      <div class="experience-text">
+        <h3>Research Assistant @ Idiap</h3>
+        <div class="meta">Oct 2022 - May 2025 · Martigny, Switzerland</div>
+        <p>Multimodal human-centric video understanding (visual attention modeling, hand-object interaction, social interaction) and vision-language models (VLMs).</p>
+      </div>
+    </div>
+
+    <div class="publication">
+      <img src="https://www.cvc.uab.es/wp-content/uploads/2021/05/CVC-logo-white.png" alt="CVC Logo" class="logo-blackbg">
+      <div class="experience-text">
+        <h3>ML Research Intern @ CVC</h3>
+        <div class="meta">Apr 2022 - Sep 2022 · Barcelona, Spain</div>
+        <p>Geometrically equivariant self-supervised representation learning for 3D gaze estimation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section class="project-section fade-in" id="publications">
+    <h2>Selected Publications</h2>
+
+    <div class="publication">
+      <img src="images/gazeinteract.png" alt="Project">
+      <div class="publication-content">
+        <a href="https://arxiv.org/abs/2403.10511" target="_blank">MTGS: A Novel Framework for Multi-Person Temporal Gaze Following and Social Gaze Prediction</a>
+        <p>NeurIPS 2024</p>
+        <p>Anshul Gupta, Samy Tafasca, <strong>Arya Farkhondeh</strong>, Pierre Vuillecard, Jean-Marc Odobez.</p>
+        <a href="https://arxiv.org/abs/2403.10511" target="_blank">arXiv</a>
+      </div>
+    </div>
+
+    <div class="publication">
+      <img src="images/cp_hand.png" alt="Publication">
+      <div class="publication-content">
+        <a href="https://arxiv.org/abs/2409.09319" target="_blank">ChildPlay-Hand: A Dataset of Hand Manipulations in the Wild</a>
+        <p>ECCV Workshops 2024</p>
+        <p><strong>Arya Farkhondeh*</strong>, Samy Tafasca*, Jean-Marc Odobez.</p>
+        <a href="https://arxiv.org/abs/2409.09319" target="_blank">arXiv</a>
+        <a href="https://www.idiap.ch/en/scientific-research/data/childplay_hand" target="_blank">data</a>
+        <a href="https://github.com/idiap/childplay_hand" target="_blank">code</a>
+      </div>
+    </div>
+
+    <div class="publication">
+      <img src="images/gazevlm.png" alt="Publication">
+      <div class="publication-content">
+        <a href="https://arxiv.org/abs/2403.10511" target="_blank">Exploring the Zero-Shot Capabilities of Vision-Language Models for Improving Gaze Following</a>
+        <p>CVPR Workshops 2024 (Nvidia Best Paper Award 🥇)</p>
+        <p>Anshul Gupta*, Pierre Vuillecard*, <strong>Arya Farkhondeh</strong>, Jean-Marc Odobez.</p>    
+        <a href="https://arxiv.org/abs/2406.03907" target="_blank">arXiv</a>
+        <a href="https://youtu.be/Vgrgi53efkE?t=4383" target="_blank">video</a>   
+      </div>
+    </div>
+
+    <div class="publication">
+      <img src="images/swat.png" alt="Publication">
+      <div class="publication-content">
+        <a href="https://arxiv.org/abs/2203.10974" target="_blank">Towards Self-Supervised Gaze Estimation</a>
+        <p>BMVC 2022</p>
+        <p><strong>Arya Farkhondeh</strong>, Cristina Palmero, Simone Scardapane, Sergio Escalera.</p>  
+        <a href="https://arxiv.org/abs/2203.10974" target="_blank">arXiv</a>
+        <a href="https://github.com/aryafarkhondeh/SwAT" target="_blank">code</a>
+        <a href="https://bmvc2022.mpi-inf.mpg.de/549/" target="_blank">website</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="project-section fade-in" id="projects">
+    <h2>Personal Projects</h2>
+    <div class="coming-soon">
+      🚀 Coming soon!
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Arya Farkhondeh
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Create animated particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 30;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 4 + 2;
+        const startX = Math.random() * window.innerWidth;
+        const animationDuration = Math.random() * 20 + 15;
+        const delay = Math.random() * 20;
+        
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        particle.style.left = startX + 'px';
+        particle.style.animationDuration = animationDuration + 's';
+        particle.style.animationDelay = delay + 's';
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Scroll animations
+    function animateOnScroll() {
+      const elements = document.querySelectorAll('.fade-in');
+      
+      elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          element.classList.add('visible');
+        }
+      });
+    }
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    // Initialize
+    createParticles();
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+
+    // Add parallax effect to profile picture
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      const parallax = document.querySelector('.profile-pic');
+      if (parallax) {
+        const speed = scrolled * -0.5;
+        parallax.style.transform = `translateY(${speed}px) scale(${1 + scrolled * 0.0001})`;
+      }
+    });
+  </script>
+</body>
+</html>
