@@ -67,6 +67,10 @@
       padding: 12px 24px;
       z-index: 1000;
       transition: all 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     nav:hover {
@@ -407,10 +411,19 @@
         padding: 10px 20px;
         font-size: 13px;
       }
-      
+
+      nav {
+        flex-direction: column;
+        width: 90%;
+        top: 10px;
+        padding: 10px;
+        border-radius: 20px;
+      }
+
       nav a {
-        margin: 0 10px;
-        font-size: 13px;
+        display: block;
+        margin: 10px 0;
+        font-size: 16px;
       }
       
       .project-section {
