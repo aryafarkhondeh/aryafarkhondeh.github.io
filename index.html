@@ -133,6 +133,7 @@
       border: 4px solid rgba(30, 144, 255, 0.3);
       box-shadow: 0 0 60px rgba(30, 144, 255, 0.4);
       margin-bottom: 2rem;
+      margin-top: 3rem;
       transition: all 0.3s ease;
       animation: profilePulse 4s ease-in-out infinite;
     }
@@ -148,7 +149,7 @@
     }
 
     h1 {
-      font-size: 4rem;
+      font-size: 2.5rem;
       font-weight: 800;
       background: linear-gradient(135deg, #ffffff 0%, #cccccc 50%, #999999 100%);
       -webkit-background-clip: text;
@@ -164,10 +165,10 @@
     }
 
     .subtitle {
-      font-size: 1.5rem;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.8);
-      margin-bottom: 3rem;
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: rgba(99, 197, 240, 0.865);
+      margin-bottom: 2rem;
       opacity: 0;
       animation: fadeInUp 1s ease 0.5s forwards;
     }
@@ -473,10 +474,26 @@
   </nav>
 
   <section class="section" id="about">
-    <img src="images/arya.jpg" alt="Arya Farkhondeh" class="profile-pic" />
+    <img id="avatar" src="images/arya.jpg" alt="Arya Farkhondeh" class="profile-pic" /> 
     <h1>Arya Farkhondeh</h1>
     <div class="subtitle">Machine Learning & Computer Vision Engineer</div>
+
+<p style="
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.09rem;
+  line-height: 1.6;
+  text-align: justify; 
+  font-family: 'Inter', sans-serif;
+">
+  I develop AI systems for understanding how humans interact with objects and their environment.
+  My work spans hand-object interaction, action understanding, gaze estimation, visual attention, and multimodal human behavior analysis.<br><br>
+  Currently, I work as a ML Engineer at Simi Automotive (ZF LIFETEC), where I develop in-cabin intelligence for functional safety and automated driving. 
+  Previously, I worked at Idiap Research Institute, EPFL, and Computer Vision Center (CVC).
+</p>
     
+
     <div class="links" id="contact">
       <a href="mailto:arya.farkh@gmail.com">Email</a>
       <a href="https://scholar.google.com/citations?user=ZgMfa7gAAAAJ&hl" target="_blank" rel="noopener noreferrer">Google Scholar</a>
@@ -562,6 +579,7 @@
         <p>NeurIPS 2024</p>
         <p>Anshul Gupta, Samy Tafasca, <strong>Arya Farkhondeh</strong>, Pierre Vuillecard, Jean-Marc Odobez.</p>
         <a href="https://arxiv.org/abs/2403.10511" target="_blank">arXiv</a>
+        <a href="https://github.com/idiap/MTGS" target="_blank">code</a>
       </div>
     </div>
 
@@ -596,15 +614,7 @@
         <p><strong>Arya Farkhondeh</strong>, Cristina Palmero, Simone Scardapane, Sergio Escalera.</p>  
         <a href="https://arxiv.org/abs/2203.10974" target="_blank">arXiv</a>
         <a href="https://github.com/aryafarkhondeh/SwAT" target="_blank">code</a>
-        <a href="https://bmvc2022.mpi-inf.mpg.de/549/" target="_blank">website</a>
       </div>
-    </div>
-  </section>
-
-  <section class="project-section fade-in" id="projects">
-    <h2>Personal Projects</h2>
-    <div class="coming-soon">
-      🚀 Coming soon!
     </div>
   </section>
 
@@ -681,5 +691,21 @@
       }
     });
   </script>
+
+<script>
+const avatar = document.getElementById('avatar');
+const img1 = "images/arya.jpg";
+const img2 = "images/arya_normal.webp";
+
+// preload
+[new Image().src = img1, new Image().src = img2];
+
+if (avatar) {
+  avatar.addEventListener("click", () => {
+    avatar.src = (avatar.src.includes("arya.jpg")) ? img2 : img1;
+  });
+}
+</script>
+
 </body>
 </html>
